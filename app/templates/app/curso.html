@@ -2,6 +2,27 @@
 
 {% block titulo %} Cursos {% endblock %}
 
+{% block formulario %}
+        <!-- Formulario Carga-->
+        <h4> Agregar Curso </h4>
+        {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+        <form action="/formulario_cursos" method="POST">
+            {% csrf_token %}
+            <p>Curso: <input type="text" name="nombre" placeholder="ej: Python"></p>
+            <p>Comision: <input type="number" name="comision" placeholder="ej: 133"></p>
+    
+            <input type="submit" value="Guardar">
+        </form>
+        <!-- Formulario Busqueda-->
+        <form action="/buscar_curso" method="GET">
+            <h4>Buscar</h4>
+            <p><input type="text" name="curso" placeholder="Buscar curso"></p>
+            <p><input type="submit" value="Buscar"></p>
+        </form>
+{% endblock formulario %}
+
 {% block contenidoQueCambia %}
 
 <h1 class="mb-5">Cursos</h1>

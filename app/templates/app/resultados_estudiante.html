@@ -1,0 +1,29 @@
+{% extends "app/index.html" %}
+
+{% block contenidoQueCambia %} <h1 class="mb-5">Resultados</h1> {% endblock %}
+
+{% block formulario %}
+<p>{{ query }}</p>
+{% if estudiantes %}
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for estudiante in estudiantes %}
+        <tr>
+            <td>{{ estudiante.nombre }}</td>
+            <td>{{ estudiante.apellido }}</td>
+            <td>{{ estudiante.email }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>{{ respuesta2 }}</p>
+{% endif %}
+{% endblock formulario %}

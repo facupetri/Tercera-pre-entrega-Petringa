@@ -2,6 +2,27 @@
 
 {% block titulo %} Profesores {% endblock %}
 
+{% block formulario %}
+        <!-- Formulario Carga-->
+        <h1> Agregar Profesor </h1>
+        <form action="formulario_profesores" method="POST">
+            {% csrf_token %}
+            <p>Nombre: <input type="text" name="nombre"></p>
+            <p>Apellido: <input type="text" name="apellido"></p>
+            <p>Materia: <input type="text" name="materia"></p>
+    
+            <input type="submit" value="Guardar">
+        </form>
+        <!--Formulario Busqueda-->
+        <form action="/buscar_profesor" method="GET">
+            <h4>Buscar</h4>
+            <p><input type="text" name="nombre" placeholder="Ingrese Nombre"></p>
+            <p><input type="text" name="apellido" placeholder="Ingrese Apellido"></p>
+            <p><input type="submit" value="Buscar"></p>
+        </form>
+
+{% endblock formulario %}
+
 {% block contenidoQueCambia %}
 <h1 class="mb-5">Profesores</h1>
 
